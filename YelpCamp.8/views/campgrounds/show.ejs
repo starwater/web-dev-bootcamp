@@ -1,0 +1,59 @@
+<% include ../partials/header %>
+
+<!--side bar container-->
+<div class= "container">
+    <div class="row">
+        <div class="col-md-3">
+            <P class="lead">YelpCamp</P>
+            <div class="list-group">
+                <li class="list-group-item active">info1</li>
+                <li class="list-group-item">info2</li>
+                <li class="list-group-item">info3</li>
+            </div>
+        </div>
+        <!--end of side bar-->
+        
+        <!--main content-->
+        <div class="col-md-9">
+                    <div class="img-thumbnail">
+                    <img class="img-responsive" src="<%=campground.image%>">
+                    <div class="caption-full">
+                        <h4 class="float-right">$9.00/night</h4>
+                        <!--this should be a link to the actual campground-->
+                        <h4><a href="http://www.google.ca"><%= campground.name %></a></h4>   
+                    </div>
+                    <p> <%= campground.description%> </p>
+                    <p><em>provided by</em> <%= campground.author.username%> </p>
+                    <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+                        <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                        <button id="delete_form" class="float-left btn btn-outline-danger">DELETE</button>
+                        </form>
+                        <a href="/campgrounds/<%=campground._id%>/edit" role="button" class="btn btn-outline-info">EDIT</a>
+                    <% } %>
+                    
+                    </div>
+                    <!--end of thumbnail-->
+                    <!--comment frame-->
+                    <div class="card card-body bg-light">
+                        <a class="float-right btn btn-warning" href="/campgrounds/<%=campground._id%>/comments/new">Add new comment</a>
+                            <hr>
+
+                        <!--end of comment button-->
+                            <!--comment for loop-->
+                            <% campground.comments.forEach(function(comment){ %>
+                            <div class="row">
+                                <div class="col-md-12">
+                                        <%= comment.text%> 
+                                        <span class="float-right">10 days ago</span><br/>
+                                    -<strong><%= comment.author.username%></strong>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+                    <!--end of comment-->
+        </div>
+        <!--end of main content-->
+    </div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,17 @@
+body{
+    min-height: 75rem;
+    padding-top: 4.5rem;
+    color:black;
+}
+
+img{
+    width: 100%;
+}
+
+.img-thumbnail{
+    padding:0;
+}
+
+#delete_form{
+    display:inline;
+}

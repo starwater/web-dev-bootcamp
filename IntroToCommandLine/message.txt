@@ -1,0 +1,18 @@
+Intro to command line
+
+node-v 
+npm-v
+ls
+cd
+cd..
+touch --to create files
+mkdir --to create directories
+rm --to delete specific file
+rm -rf   --recursive force delete 
+
+node - js console
+node <filename> --run the file in javascript
+
+double ctrl+C  -quit console
+irb - ruby console
+ruby <filename> -- open file in ruby console

@@ -1,0 +1,12 @@
+<% include ./partials/header %>
+
+<!--//method="post" is case sensitive-->
+<div class="container">
+    <form action="/login" method="post">
+        <input type="text" placeholder="username" name="username">
+        <input type="password" placeholder="password" name="password">
+        <button>submit</button>
+    </form>
+</div>
+
+<% include ./partials/footer %>
